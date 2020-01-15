@@ -1,0 +1,80 @@
+<nav @dropDown class="navbar navbar-expand-lg navbar-dark  bg-danger">
+  <div class="container">
+    <a
+      class="navbar-brand"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLink="/"
+      >MovieInfo</a
+    >
+    <a class="navbar-x" routerLinkActive="custom-active" routerLink="trending"
+      >Trending</a
+    >
+    <a class="navbar-x" routerLinkActive="custom-active" routerLink="movies"
+      >Movies</a
+    >
+    <a class="navbar-x" routerLinkActive="custom-active" routerLink="download-links"
+      >Links</a
+    >
+  
+    <!-- future feature -->
+    <!-- <button
+      class="btn addToHomeScreen"
+      type="button"
+      (click)="onAddToHomeScreen()"
+      style="border: 1px solid #b9b9b9 ;padding: 3px"
+    >
+      <span class="fa fa-plus" style="color: white"></span>
+    </button> -->
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarColor01"
+      aria-controls="navbarColor01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- secured Link -->
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item" *ngIf="isAuthenticated" routerLinkActive="active">
+          <a class="nav-link">18+</a>
+        </li>
+
+        <li class="nav-item" *ngIf="isAuthenticated" routerLinkActive="active">
+          <a class="nav-link">up coming</a>
+        </li> -->
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="about">About</a>
+        </li>
+      </ul>
+
+      <div class="mr-0">
+        <ul class="navbar-nav">
+          <!-- loginIn -->
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!isAuthenticated" routerLink="auth">
+              <i class="fa fa-user"></i> Login
+            </a>
+          </li>
+          <!-- username -->
+          <li class="nav-item active" *ngIf="isAuthenticated">
+            <a class="nav-link"><i class="fa fa-user"></i> {{userEmail}} </a>
+          </li>
+          <!-- logout -->
+          <li class="nav-item" *ngIf="isAuthenticated">
+            <a class="nav-link" (click)="onLogout()">
+            logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

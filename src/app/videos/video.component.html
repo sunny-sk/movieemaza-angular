@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+        <div *ngFor="let key of videos">
+            <iframe width="100%"
+             height="350"
+              [src] = "key" 
+              frameborder="0"
+              class="mt-2"
+               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+             allowfullscreen></iframe>
+        </div>
+    </div>
+  </div>
+</div>

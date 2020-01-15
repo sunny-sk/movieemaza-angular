@@ -1,0 +1,15 @@
+.col-xs-12{
+    width: 50%;
+    margin-left: 25%;
+}
+
+
+@media  screen and (max-width: 727px) {
+    .col-xs-12{
+        width: 70%;
+        margin-left: 15%;
+    
+     }
+     
+     
+  }

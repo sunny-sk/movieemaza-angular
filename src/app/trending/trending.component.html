@@ -1,0 +1,64 @@
+
+<!-- loading icon -->
+<br>
+<div class="container text-center" *ngIf="isLoading">
+  <div class="lds-ripple">
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+
+
+<br>
+<!-- movie frame -->
+<div class="container">
+  <div class="row">
+    <div @fade class="col-xs-2 mb-5 movie-frame" *ngFor="let movie of movies">
+        <a (click)="getDetailsOfSingleMovie(movie)"  >
+        <div class="card" *ngIf="movie.id">
+            <div class="inner-image">
+              <img [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" class="card-img-top" alt="">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ movie.title||movie.original_name||movie.original_title}}
+                <small class="form-text text-muted">{{movie?.release_date}}</small>
+              </h5>
+              <small class="form-text text-muted">Rating: {{movie?.vote_average}}</small>
+            </div>
+          </div>
+     </a>
+    </div>
+  </div>
+</div>
+<!-- no movie found -->
+<div class="container" *ngIf="!response && !isLoading">
+  <br><br>
+  <div class="text-center">
+    <h4 style="color: white">
+      {{message}}
+    </h4>
+  </div>
+</div>
+
+
+<!-- second loader and add more -->
+<div class="container"  *ngIf="movies.length > 0">
+  <div class="container text-center" *ngIf="moreLoading && addMoreStatus == 1">
+    <div class="lds-facebook">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="row" *ngIf="!moreLoading && addMoreStatus == 0">
+    <div class="col text-center">
+      <h6>
+         {{addMoreStatusText}}
+      </h6>
+    </div>
+  </div>
+  <button class="btn btn-danger btn-block mb-3" *ngIf="movies.length > 0" (click)="addMoreTrendingMovies()">
+    more
+  </button>
+</div>

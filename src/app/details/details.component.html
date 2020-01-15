@@ -1,0 +1,106 @@
+<br /><br />
+<!-- loading icon -->
+<div class="container text-center" *ngIf="isLoading">
+  <div class="lds-ripple">
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<!-- Error Text -->
+<div class="container" *ngIf="status == 0 && !response && !isLoading">
+  <div class="row">
+    <div class="col">
+      <div class="jumbotron">
+        <h5>{{ statusText }}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="response && !isLoading && status == 1">
+  <div class="row">
+    <!-- poster image -->
+    <div class="col-xs-3">
+      <img *ngIf="imagePath" class="ml-2 img-fluid image-poster" [src]="'https://image.tmdb.org/t/p/w200/' + imagePath"
+        alt={{name}} />
+    </div>
+
+    <!-- details -->
+    <div class="col ml-3">
+      <div class="container">
+
+        <h4 class="mb-1 mt-3">{{ name }}</h4>
+
+        <small style="font-size: 14px" *ngIf="tagLine != ''">({{ tagLine }})</small>
+
+        <p class="mt-2">{{ movieId }} &nbsp; lang : {{ language }}</p>
+
+        <div>
+          <h6>{{ runtime }} min</h6>
+        </div>
+
+        <div *ngIf="ratings.length > 0">
+          <small style="color:whitesmoke">Ratings</small>
+          <ul class="mt-1 list-group">
+            <li class="p-2 list-group-item" *ngFor="let rating of ratings ">
+              {{rating.Source}} {{rating.Value}}
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-2">
+          <span class="badge badge-primary p-2">
+            releasingDate: {{ releaseDate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- categories -->
+  <div class="categories mt-2">
+    <!-- casts -->
+    <p class="mt-3" *ngIf="actors != '' "> {{actors | lowercase}}</p>
+    <a class="ml-3 mt-3 p-2 badge badge-danger" *ngFor="let category of categories">{{ category }}</a>
+  </div>
+
+  <br /><br />
+
+  <!-- description -->
+  <div *ngIf="overView != ''">
+    <span class="badge badge-warning mb-3">
+      <i style="color : white" class="fa fa-pencil"></i> Description</span>
+    <p>{{ overView }}</p>
+  </div>
+  <br />
+  <br />
+
+  <!-- clips/images of movies -->
+  <div class="x" *ngIf="images.length > 0">
+    <div class="row">
+      <div class="col-xs-12 x">
+        <img *ngFor="let image of images" style="max-height: 19rem" class="x ml-2 mb-2 p-2"
+          [src]="'https://image.tmdb.org/t/p/w200/' + image" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <!-- download options -->
+  <div class="text-center mb-4" *ngIf="response && !isLoading && status == 1">
+    <div class="row">
+      <!-- download button -->
+      <div class="col">
+        <a class="btn btn-primary" style="color:white" (click)="onDownloadClick()"> download</a>
+      </div>
+    </div>
+
+    <!-- downloading button routing  -->
+    <div class="row">
+      <div class="col">
+        <!-- video clips  of movies -->
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

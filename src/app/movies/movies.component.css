@@ -1,0 +1,234 @@
+
+/* css first loading spinner */
+.lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-ripple div {
+    position: absolute;
+    border: 4px solid #fff;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -0.5s;
+  }
+  @keyframes lds-ripple {
+    0% {
+      top: 28px;
+      left: 28px;
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      top: -1px;
+      left: -1px;
+      width: 58px;
+      height: 58px;
+      opacity: 0;
+    }
+  }
+
+  /* css second loader */
+  .lds-facebook {
+    
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 6px;
+    width: 13px;
+    background: #fcf;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 6px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 26px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 45px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 6px;
+      height: 51px;
+    }
+    50%, 100% {
+      top: 19px;
+      height: 26px;
+    }
+  }
+
+
+
+container{
+  padding: 0%;
+}
+.card{
+  width:10rem;
+}
+ 
+@media only screen and (min-width: 768px) {
+  .container{
+  }
+  .movie-frame{
+    margin-left: 2%
+  }
+
+  .card{
+    width: 12rem;
+  }
+  
+
+}
+
+@media only screen and (max-width: 1194px) {
+  .container{
+  
+  }
+  .movie-frame{
+    margin-left: 4%;
+  }
+
+  .card{
+    width: 12rem;
+  }
+  
+}
+
+@media only screen and (max-width: 971px) {
+  .container{
+   
+  }
+  .movie-frame{
+    margin-left: 5%;
+  }
+
+  .card{
+    width: 12rem;
+  }
+  
+}
+
+@media only screen and (max-width: 770px) {
+  .container{
+    
+  }
+  .movie-frame{
+    margin-left: 1.5%;
+  }
+
+  .card{
+    width: 14rem;
+  }
+  
+}
+
+@media only screen and (max-width: 767px) {
+  .container{
+  
+  }
+  .movie-frame{
+    margin-left: 4%;
+  }
+
+  .card{
+    width: 14rem;
+  }
+  
+}
+
+ @media only screen and (max-width: 760px) {
+    .container{
+     
+    }
+    .movie-frame{
+      margin-left: 2%;
+    }
+
+    .card{
+      width: 16rem;
+    }
+    
+  }
+
+  @media only screen and (max-width: 550px) {
+    .container{
+     
+    }
+    .movie-frame{
+      margin-left: 16%;
+    }
+    .card{
+      width: 20rem;
+    }
+    
+  }
+
+  @media only screen and (max-width: 450px) {
+    .container{
+      
+    }
+    .movie-frame{
+      margin-left: 10%;
+    }
+    .card{
+      width: 18rem;
+    }
+    
+  }
+
+  @media only screen and (max-width: 415px) {
+    .container{
+     
+    }
+    .movie-frame{
+      margin-left: 12%;
+    }
+    .card{
+      width: 17rem;
+    }
+    
+  }
+
+  @media only screen and (max-width: 325px) {
+    .container{
+    }
+    .movie-frame{
+      margin-left: 12%;
+    }
+    .card{
+      width: 15rem;
+    }
+    
+  }
+
+
+
+
+  .card{
+    background-color:black;
+    color: white;
+  }
+
+
+  
+  .card:hover{
+    background-color: white;
+    color: black;
+    transition: 0.3s ease-in-out;
+    padding: 1px;
+  }

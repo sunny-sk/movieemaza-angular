@@ -1,0 +1,34 @@
+
+<!-- form -->
+
+<div class="container">
+<div class="alert alert-success" *ngIf="response"> addedd successfully</div>
+  <div class="row">
+    <div class="col-xs-12 col-md-12 ">
+
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" ngModel required name="title" #title="ngModel" minlength="5" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="link">Link</label>
+          <input type="link" required ngModel name="link" #link="ngModel" minlength="5" class="form-control">
+        </div>
+
+        <!-- //loading icon -->
+        <br>
+        <div class="container text-center" *ngIf="isLoading">
+          <div class="lds-ripple">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+
+        <button [disabled]="!authForm.valid" class="btn btn-success" type="submit">Add Link</button>
+        <br><br>
+      </form>
+    </div>
+  </div>
+</div>

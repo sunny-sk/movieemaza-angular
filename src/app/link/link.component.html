@@ -1,0 +1,38 @@
+<br /><br />
+
+
+<!-- loader -->
+
+<div class="container text-center" *ngIf="isLoading">
+  <div class="lds-ripple">
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="container" *ngIf="downloadLink.length < 0 && !isLoading">
+  <hr style="color: blanchedalmond;background-color: blanchedalmond" />
+  <h4>No Links Available</h4>
+</div>
+
+<div class="container" *ngIf="downloadLink.length > 0 && !isLoading">
+  <div class="row">
+    <div class="col">
+      <ul  @fade class="list-group">
+        <!-- // ngFor -->
+        <li   class="list-group-item mb-2" *ngFor="let downloadLink of downloadLink">
+          <a  [href]="downloadLink.downloadLink" target="_blank">
+            <div class="justify-content-between">
+              <h5 class="mb-1">{{ downloadLink.displayName | titlecase }}</h5>
+              <small class="text-muted"> {{ downloadLink.id }} </small>
+            </div>
+            <p class="mb-1">{{downloadLink.description}}</p>
+            <small class="text-muted">{{ downloadLink.date }}</small>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br /><br />

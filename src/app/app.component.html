@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<br>
+
+<div class="container text-center">
+    <button 
+            class="alert alert-warning"
+            *ngIf="serviceWorkerUpdate"
+            (click)="onUpdateServiceWorker()">
+        <i class="fa fa-cogs"></i>
+         update app </button>
+</div>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
